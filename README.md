@@ -1,1 +1,1 @@
-#### chivebot-coolfaces
+#### chivebot-weather
