@@ -51,7 +51,6 @@ function parse(stream, cb) {
 
         if (data.success !== 'true') {
             message = 'Something went wrong while I was fetching the weather.';
-            return;
         } else if (typeof data.temperature === 'undefined' || isNaN(parseInt(data.temperature, 10))) {
             message = util.format('I\'m not quite sure what the current temperature is for %s, %s.', data.city, data.state);
         } else {
