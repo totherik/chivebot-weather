@@ -1,0 +1,11 @@
+{
+  "name": "chivebot-weather",
+  "version": "0.0.0",
+  "description": "A weather plugin for chivebot",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "author": "Erik Toth <totherik@gmail.com>",
+  "license": "MIT"
+}
