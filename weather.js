@@ -73,8 +73,7 @@ function parse(stream, cb) {
 exports.fetch = function (zip, cb) {
     var options, req;
 
-    zip = parseInt(zip, 10);
-    if (isNaN(zip)) {
+    if (isNaN(parseInt(zip, 10))) {
         cb(null, 'Gimme a *workable* zip code! Five digit number, yo.');
         return;
     }
