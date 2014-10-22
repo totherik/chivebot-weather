@@ -1,6 +1,6 @@
 {
   "name": "chivebot-weather",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "A weather plugin for chivebot",
   "main": "index.js",
   "scripts": {
