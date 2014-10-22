@@ -1,36 +1,31 @@
 'use strict';
 
-var util = require('util'),
-    pkg = require('./package'),
-    weather = require('./weather');
+var Util = require('util');
+var Package = require('./package');
+var Weather = require('./weather');
 
 
-module.exports = {
+exports.register = function (plugin, options, next) {
 
-    name: pkg.name,
+    plugin.dependency('chivebot', function (plugin, next) {
 
-    version: pkg.version,
-
-    register: function (plugin, options, next) {
-
-        plugin.dependency('chivebot', function (plugin, next) {
-
-            plugin.plugins.chivebot.registerCommand('weather', function (raw, args, cb) {
-                weather.fetch(args[2], function (err, data) {
-                    if (err) {
-                        cb(err);
-                        return;
-                    }
-                    cb(null, util.format('Hey, <@%s|%s>! %s', raw['user_id'], raw['user_name'], data))
-                });
+        plugin.plugins.chivebot.registerCommand('weather', function (raw, args, cb) {
+            Weather.fetch(args._[2], function (err, data) {
+                if (err) {
+                    cb(err);
+                    return;
+                }
+                cb(null, Util.format('Hey, <@%s|%s>! %s', raw['user_id'], raw['user_name'], data))
             });
-
-            next();
-
         });
 
         next();
+    });
 
-    }
+    next();
+};
 
+
+exports.register.attributes = {
+    pkg: Package
 };
